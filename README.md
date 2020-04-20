@@ -12,6 +12,10 @@ Simple kata to get the overall cost of a basket given items.
 
 This will run a node container, which will install the node mosules and run the tests
 
+### `make watch`
+
+This will run a node container, which will install the node mosules and will run the tests every time a file is saved
+
 ## Kata Instructions
 
 You should implement a supermarket checkout which:
