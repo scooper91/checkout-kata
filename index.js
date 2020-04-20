@@ -8,9 +8,5 @@ const itemValues = {
 };
 
 module.exports = items => {
-  if (items === 'AA') { return 100; }
-  if (items === 'AB') { return 80; }
-  if (items === 'ABCD') { return 115; }
-  if (items === 'DDCABA') { return 180; }
-  return itemValues[items] || 0;
+  return items.split('').reduce((total, item) => total += itemValues[item], 0);
 };

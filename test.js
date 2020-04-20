@@ -14,11 +14,12 @@ describe('checkout', () => {
     it(`returns price for single ${item}`, () => assert.equal(checkout(item), price));
   });
 
-  it('returns 100 for 2 A items', () => assert.equal(checkout('AA'), 100));
-
-  it('returns 80 for A & B', () => assert.equal(checkout('AB'), 80));
-
-  it('returns 115 for A, B, C & D', () => assert.equal(checkout('ABCD'), 115));
-
-  it('returns 180 for D, D, C, A, B, A', () => assert.equal(checkout('DDCABA'), 180));
+  Object.entries({
+    AA: 100,
+    AB: 80,
+    ABCD: 115,
+    DDCABA: 180
+  }).forEach(([items, price]) => {
+    it(`returns price for ${items}`, () => assert.equal(checkout(items), price));
+  });
 });
