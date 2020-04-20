@@ -1,7 +1,8 @@
 'use strict';
 
-module.exports = items => {
-  if (items === '') { return 0; }
-  if (items === 'B') { return 30; }
-  return 50;
+const itemValues = {
+  A: 50,
+  B: 30
 };
+
+module.exports = items => itemValues[items] || 0;
