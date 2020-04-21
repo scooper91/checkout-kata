@@ -8,18 +8,17 @@ const itemValues = {
 };
 
 module.exports = items => {
-  let aCount = 0;
-  let bCount = 0;
+  const itemCounts = {};
 
   const total = items.split('').reduce((total, item) => {
-    if (item === 'A') { aCount++; }
-    if (item === 'B') { bCount++; }
+    const itemCount = itemCounts[item];
+    itemCounts[item] = itemCount ? itemCount + 1 : 1;
 
     return total += itemValues[item];
   }, 0);
 
-  const aDiscount = Math.floor(aCount / 3) * 20;
-  const bDiscount = Math.floor(bCount / 2) * 15;
+  const aDiscount = Math.floor((itemCounts.A || 0) / 3) * 20;
+  const bDiscount = Math.floor((itemCounts.B || 0) / 2) * 15;
 
   return total - aDiscount - bDiscount;
 };
