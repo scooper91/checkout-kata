@@ -8,7 +8,15 @@ const itemValues = {
 };
 
 module.exports = items => {
-  if (items === 'AAA') { return 130; }
+  let aCount = 0;
 
-  return items.split('').reduce((total, item) => total += itemValues[item], 0);
+  const total = items.split('').reduce((total, item) => {
+    if (item === 'A') { aCount++; }
+
+    return total += itemValues[item];
+  }, 0);
+
+  const discount = Math.floor(aCount / 3) * 20;
+
+  return total - discount;
 };

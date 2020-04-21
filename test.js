@@ -23,5 +23,11 @@ describe('checkout', () => {
     it(`returns price for ${items}`, () => assert.equal(checkout(items), price));
   });
 
-  it('returns discounted price for A', () => assert.equal(checkout('AAA'), 130));
+  Object.entries({
+    AAA: 130,
+    AAAAAA: 260,
+    ABACADA: 245,
+  }).forEach(([items, price]) => {
+    it(`returns price with discount for A`, () => assert.equal(checkout(items), price));
+  });
 });
