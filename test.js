@@ -22,4 +22,6 @@ describe('checkout', () => {
   }).forEach(([items, price]) => {
     it(`returns price for ${items}`, () => assert.equal(checkout(items), price));
   });
+
+  it('returns discounted price for A', () => assert.equal(checkout('AAA'), 130));
 });
