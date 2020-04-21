@@ -28,6 +28,14 @@ describe('checkout', () => {
     AAAAAA: 260,
     ABACADA: 245,
   }).forEach(([items, price]) => {
-    it(`returns price with discount for A`, () => assert.equal(checkout(items), price));
+    it('returns price with discount for A', () => assert.equal(checkout(items), price));
   });
+
+  it('returns price with discount for B', () => assert.equal(checkout('BB'), 45));
+
+  it('returns price with 2 discounts for B', () => assert.equal(checkout('BBBB'), 90));
+
+  it('returns price with 2 discounts for B with other items', () =>
+    assert.equal(checkout('BABCBDBB'), 205)
+  );
 });
