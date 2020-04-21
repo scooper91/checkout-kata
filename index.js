@@ -9,20 +9,17 @@ const itemValues = {
 
 module.exports = items => {
   let aCount = 0;
-
-  if (items === 'BB') { return 45; }
-
-  if (items === 'BBBB') { return 90; }
-
-  if (items === 'BABCBDBB') { return 205; }
+  let bCount = 0;
 
   const total = items.split('').reduce((total, item) => {
     if (item === 'A') { aCount++; }
+    if (item === 'B') { bCount++; }
 
     return total += itemValues[item];
   }, 0);
 
-  const discount = Math.floor(aCount / 3) * 20;
+  const aDiscount = Math.floor(aCount / 3) * 20;
+  const bDiscount = Math.floor(bCount / 2) * 15;
 
-  return total - discount;
+  return total - aDiscount - bDiscount;
 };

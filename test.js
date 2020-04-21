@@ -31,11 +31,15 @@ describe('checkout', () => {
     it('returns price with discount for A', () => assert.equal(checkout(items), price));
   });
 
-  it('returns price with discount for B', () => assert.equal(checkout('BB'), 45));
+  Object.entries({
+    BB: 45,
+    BBBB: 90,
+    BABCBDBB: 205,
+  }).forEach(([items, price]) => {
+    it('returns price with discount for B', () => assert.equal(checkout(items), price));
+  });
 
-  it('returns price with 2 discounts for B', () => assert.equal(checkout('BBBB'), 90));
-
-  it('returns price with 2 discounts for B with other items', () =>
-    assert.equal(checkout('BABCBDBB'), 205)
+  it('returns price when both A & B discount applies', () =>
+    assert.equal(checkout('AAABB'), 175)
   );
 });
