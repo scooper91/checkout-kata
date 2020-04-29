@@ -10,7 +10,7 @@ Simple kata to get the overall cost of a basket given items.
 
 ### `make test`
 
-This will run a node container, which will install the node mosules and run the tests
+This will run a node container, which will install the node modules and run the tests
 
 ### `make watch`
 
